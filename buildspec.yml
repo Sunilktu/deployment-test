@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    image: python:3.8  # You can specify the Python version you need
+    ports:
+      - "5000:5000"  # Map host port to container port
+    volumes:
+      - ./app:/app  # Mount your Flask app directory
+    environment:
+      FLASK_APP: app.py  # Replace with the name of your Flask app file
+      FLASK_ENV: development  # Set to 'production' for production use
+    command: flask run --host=0.0.0.0
+
+  # Add any other services your app may depend on (e.g., a database)
+
